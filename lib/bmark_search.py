@@ -113,7 +113,7 @@ class BmarkSearch(Search):
 	def excerpt(self,idx,num_lines=10,char_count=None):
 		file_name = os.path.join(Utils.tmp_dir, str(idx) + ".txt")
 		head = ''
-		with open(file_name,"r") as txt :
+		with open(file_name,"r", encoding = "utf-8") as txt : # does this need explicit decoding?
 			for x in range(num_lines) : head += txt.read()
 		if char_count == None : return head
 		else : return head[:char_count]

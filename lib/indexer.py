@@ -18,7 +18,7 @@ class Indexer:
 
 	@staticmethod
 	def urls(url_list):
-		for url in open(url_list,'r'):
+		for url in open(url_list,'r',encoding='utf8'): # added encoding
 			#empty string or comment
 			if not url.strip() or url.strip().startswith('#') : continue
 			yield url.rstrip("\n")
@@ -26,7 +26,7 @@ class Indexer:
 
 	@staticmethod
 	def save2file(name, string):
-		with open(name,'w') as txt: txt.write(string)
+		with open(name,'w', encoding='utf8') as txt: txt.write(string) # added encoding
 
 	def __init__(self,levels=200):
 		self.levels = levels
@@ -46,6 +46,7 @@ class Indexer:
 			self.log.info('*** The page has no <body> tag, skipping ... ***')
 			return None
 		txt = body[0].text_content().encode(errors='ignore') #encode('utf-8')
+		txt = txt.decode('utf-8') # added decoding        
 		txt = re.sub('\s*\n\s*', '\n', txt)
 		txt = re.sub('[ \t]{2,}', ' ', txt)
 		if not txt : self.log.error("Empty html")
@@ -70,14 +71,14 @@ class Indexer:
 				self.log.error("*(%s) %s : %s" % (resp.status_code, resp.reason, resp.headers['Content-Type']))
 				return None
 		except Exception as e:
-			print Exception(e)
-			print "Err processing %s" % url
+			print(Exception(e))
+			print("Err processing %s" % url)
 
 
 	def files(self,start_dir=Utils.tmp_dir):
 		for f in self.file_list :
-			print "tfidf processing: %s" % f
-			yield open(join(start_dir, f),'r').read()
+			print("tfidf processing: %s" % f)
+			yield open(join(start_dir, f),'r', encoding='utf8').read() # edited for explicit encoding
 
 
 	#the file list has to be in numerical order (so that tfidf matrix doc idx follow fetch sequence) otherwise indexing goes out of touch

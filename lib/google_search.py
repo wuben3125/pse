@@ -18,7 +18,7 @@ class GoogleSearch(Search):
 		#if isinstance(query,list) : query = ' '.join(query)
 		query = re.sub(r'\+','', query) #remove + you may have used for bmark search
 		url = self.qurl + query
-		print url
+		print(url)
 		resp = requests.get(url, timeout=10, allow_redirects=True, headers=self.user_agent)#, config=debug)
 		if resp.ok :
 			#with open(Utils.tmp_dir + '/google.html', 'w') as html : print html.write(resp.content)
