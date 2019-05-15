@@ -1,6 +1,7 @@
 from flask import Flask
 from config import config
-from flask.ext.bootstrap import Bootstrap
+# from flask.ext.bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap # updated
 bootstrap = Bootstrap()
 
 def create_app(cfg_name):
