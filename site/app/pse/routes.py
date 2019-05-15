@@ -16,7 +16,7 @@ def search():
 	google = GoogleSearch()
 	bmark = BmarkSearch()
 
-	if request.form.has_key('q') :
+	if 'q' in request.form: # updated from if request.form.has_key('q') :
 		q = request.form['q']
 
 		if len(q) > 0 :
@@ -24,12 +24,12 @@ def search():
 			try:
 				bmark.search(q)
 			except Exception as e :
-				flash('Bmark search: ' + e.message)
+				flash('Bmark search: ' + str(e)) # updated from flash("Google search error : " + e.message)
 
 			try :
 				google.search(q)
 			except Exception as e:
-				flash("Google search error : " + e.message)
+				flash("Google search error : " + str(e)) # updated from flash("Google search error : " + e.message)
 
 		else:
 			flash('Interesting what will happen if you search for something rather than nothing !!')
