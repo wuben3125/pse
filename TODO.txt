@@ -7,3 +7,5 @@
 7. Add ability to upload URL-lists, even better manage different URL lists i.e. indecies !?
 8. Rewrite the Bookmark parser in Python
 9. Capture and show "Did you mean" from Google search!
+10. Port main processes to python 3 
+11. Speed up matrix processing
