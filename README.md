@@ -1,4 +1,4 @@
-## Personal Search engine
+## Personal Search engine (python 3)
 ##### Combined Bookmarks and external search
 
 ### What is this ?
