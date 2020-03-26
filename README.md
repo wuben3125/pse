@@ -1,5 +1,6 @@
-## Personal Search engine
+## Personal Search engine (python 3)
 ##### Combined Bookmarks and external search
+
 
 ### What is this ?
 
@@ -52,6 +53,7 @@ You would need to install scikit-learn (for Tfidf support) and Flask for the web
 > pip install flask-bootstrap
 ```
 
+
 #### Create url.lst file.
 
 Next either create manually url.lst file in the data directory or generate one using bin/bm2urlst.py.
@@ -68,6 +70,9 @@ you will use to do the searches.
 > cd bin
 > python idx.py
 ```
+
+(4/14/19 note): I forgot to perform this step, and was scratching my head over a `vocabulary.csv does not exist` (paraphrased) error.
+
 
 ### Run the cmd-line app
 

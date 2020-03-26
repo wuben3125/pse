@@ -12,17 +12,17 @@ def google_search(query):
 	s = GoogleSearch()
 	s.search(query)
 	for info in s.results() :
-		print '-' * 50
-		print info
-		print s.excerpt(info['id'],5,50)
+		print('-' * 50)
+		print(info)
+		print(s.excerpt(info['id'],5,50))
 
 def bmark_search(query):
 	s = BmarkSearch()
 	s.search(query)
 	for info in s.results() :
-		print '-' * 50
-		print info
-		print s.excerpt(info['id'],5,50)
+		print('-' * 50)
+		print(info)
+		print( s.excerpt(info['id'],5,50))
 
 
 def main(arguments):

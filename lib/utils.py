@@ -36,7 +36,7 @@ class Utils:
 	@staticmethod
 	def dict2csv(ary, path=None, fname='vocabulary.csv'):
 		if not path : path = Utils.data_dir
-		w = csv.writer(open(join(path,fname), "w"), lineterminator="\n")
+		w = csv.writer(open(join(path,fname), "w"), lineterminator="\n") # does this need explicit encoding? 
 		for key, val in ary.items(): w.writerow([key, val])
 
 	@staticmethod
@@ -51,12 +51,12 @@ class Utils:
 	@staticmethod
 	def pkl2file(data,path=None,dst_file='vocabulary.pkl'):
 		if not path : path = Utils.data_dir
-		with open(join(path, dst_file), "wb") as f : pickle.dump(data,f)
+		with open(join(path, dst_file), "wb") as f : pickle.dump(data,f) # does this need explicit encoding?
 
 	@staticmethod
 	def file2pkl(path=None,src_file='vocabulary.pkl'):
 		if not path : path = Utils.data_dir
-		with open(join(path,src_file), "rb") as f : data = pickle.load(f)
+		with open(join(path,src_file), "rb") as f : data = pickle.load(f) # does this need explicit encoding?
 		return data
 
 	@staticmethod

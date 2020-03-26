@@ -5,7 +5,7 @@ import re
 
 
 if len(sys.argv) == 1 :
-	print "Please specify bookmark file"
+	print("Please specify bookmark file")
 	sys.exit()
 
 bkmark = sys.argv[1];
@@ -16,4 +16,4 @@ doc = lh.fromstring(txt)
 results = doc.xpath('//a')
 for r in results :
 	h = r.get('href')
-	if re.search(r'^http',h) : print h
+	if re.search(r'^http',h) : print (h)
